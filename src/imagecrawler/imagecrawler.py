@@ -77,7 +77,7 @@ class ImageCrawler:
         """
         웹 페이지의 모든 이미지의 URL 을 반환
         """
-        soup = BeautifulSoup(requests.get(url, headers=self.chrome_header).text, "html.parser")
+        soup = BeautifulSoup(requests.get(url, headers=self.chrome_header).text, "lxml")
         urls = []
         for img in soup.find_all("img"):
             img_url = img.attrs.get("src")
